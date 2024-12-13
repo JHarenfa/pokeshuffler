@@ -1,0 +1,15 @@
+.background-img {
+    background-image: url(./images/pokemon-bg.jpg);
+    background-size: cover;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 100%;
+    background-color: #262626;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: inset 0 0 0 50vw rgba(30, 30, 30, 0.8);
+}
