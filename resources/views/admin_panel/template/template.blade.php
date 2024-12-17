@@ -158,6 +158,7 @@
                     <li><a href="{{ route('type') }}">Type</a></li>
                     <li><a href="{{ route('rarity') }}">Rarity</a></li>
                     <li><a href="{{ route('category') }}">Category</a></li>
+                    <li><a href="{{ route('admin.invoices.index') }}">Invoices</a></li>
                     @if (Route::has('login'))
                         @auth
                             <li style="float:right">
@@ -241,6 +242,56 @@
     }
 </script>
 
+<!-- Print Invoice -->
+<script>
+    function printCard(cardId) {
+        var cardContent = document.getElementById(cardId).innerHTML;
+        var originalContent = document.body.innerHTML;
+
+        // Replace body content with the card content
+        document.body.innerHTML = cardContent;
+        window.print();
+
+        // Restore the original content
+        document.body.innerHTML = originalContent;
+        window.location.reload(); // Reload the page to restore events
+    }
+</script>
+
+<!-- Print All Invoice -->
+<script>
+    document.getElementById('print-all').addEventListener('click', function() {
+        // Create a new window for printing
+        const printWindow = window.open('', '', 'height=800,width=1000');
+
+        // Get the invoice container
+        const invoicesContainer = document.getElementById('invoices-container');
+
+        // Write the HTML structure to the print window
+        printWindow.document.write('<html><head><title>Print Invoices</title>');
+        printWindow.document.write('<style>body { font-family: Arial, sans-serif; margin: 20px; }</style>');
+
+        // Add page-break styles to each invoice
+        printWindow.document.write(
+            '<style>@media print { .invoice-card { page-break-after: always; } }</style>');
+
+        printWindow.document.write('</head><body>');
+
+        // Loop through all the invoices and append each to the new window
+        printWindow.document.write(invoicesContainer.innerHTML);
+
+        printWindow.document.write('</body></html>');
+
+        // Ensure that the new window is fully loaded before triggering the print dialog
+        printWindow.document.close(); // Close the document for the print window
+
+        // Add a small delay to ensure the content is rendered before printing
+        setTimeout(function() {
+            printWindow.print(); // Trigger the print dialog
+            printWindow.close(); // Close the print window after printing
+        }, 500); // 500ms delay to ensure content is loaded
+    });
+</script>
 
 
 

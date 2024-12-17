@@ -12,6 +12,7 @@ use App\Http\Controllers\Rarity_Controller;
 use App\Http\Controllers\Orders_Controller;
 use App\Http\Controllers\Users_Controller;
 use App\Http\Controllers\Cart_Controller;
+use App\Http\Controllers\Invoice_Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -158,8 +159,13 @@ Route::get('/checkout', [Cart_Controller::class, 'checkout'])->name('checkout');
 Route::post('/process-checkout', [Cart_Controller::class, 'processCheckout'])->name('processCheckout');
 Route::get('/thank-you/{orderId}', [Cart_Controller::class, 'thankYou'])->name('thankYou');
 
-//======================================================================= CUSTOMER ==================================================================
+//======================================================================= CUSTOMER ORDER HISTORY ==================================================================
 
 Route::get('/customer', [Customer_Controller::class, 'display'])
     ->middleware('auth')
     ->name('customer');
+
+//======================================================================= INVOICE ==================================================================
+
+Route::get('/admin/invoices', [Invoice_Controller::class, 'index'])->name('admin.invoices.index');
+Route::get('/admin/invoices/filter', [Invoice_Controller::class, 'filter'])->name('admin.invoices.filter');

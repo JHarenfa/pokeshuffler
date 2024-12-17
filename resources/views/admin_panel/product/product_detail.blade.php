@@ -29,10 +29,7 @@
                             </div>
 
                             <div class="d-grid gap-3">
-                                <button type="button" class="btn btn-success btn-lg"
-                                    onclick="addToCart({{ $product->product_id }});">
-                                    Add to Cart
-                                </button>
+
                                 <a href="{{ route('product') }}" class="btn btn-outline-secondary btn-lg">Back</a>
                             </div>
                         </div>

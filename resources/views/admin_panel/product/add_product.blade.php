@@ -24,7 +24,7 @@
                     <!-- Category -->
                     <div class="mb-3">
                         <label for="category" class="form-label">Category <span class="text-danger">*</span></label>
-                        <select id="category" name="category" class="form-select" required>
+                        <select id="category" name="category" class="form-control" required>
                             <option value="1">Single Card</option>
                             <option value="2">Booster Pack</option>
                             <option value="3">Deck</option>
@@ -35,7 +35,7 @@
                     <!-- Rarity -->
                     <div class="mb-3">
                         <label for="rarity" class="form-label">Rarity <span class="text-danger">*</span></label>
-                        <select id="rarity" name="rarity" class="form-select" required>
+                        <select id="rarity" name="rarity" class="form-control" required>
                             <option value="1">Common</option>
                             <option value="2">Uncommon</option>
                             <option value="3">Rare</option>
@@ -48,7 +48,7 @@
                     <!-- Type -->
                     <div class="mb-3">
                         <label for="type" class="form-label">Type <span class="text-danger">*</span></label>
-                        <select id="type" name="type" class="form-select" required>
+                        <select id="type" name="type" class="form-control" required>
                             <option value="1">Normal Print</option>
                             <option value="2">Reverse Holo</option>
                             <option value="3">Rare Holo</option>
@@ -91,6 +91,8 @@
 
                     <!-- Form Buttons -->
                     <div class="d-flex justify-content-end">
+                        <a href="{{ route('product') }}"><button type="button"
+                                class="btn btn-outline-danger me-2">Back</button></a>
                         <button type="reset" class="btn btn-outline-secondary me-2">Reset</button>
                         <button type="submit" class="btn btn-success">Submit</button>
                     </div>

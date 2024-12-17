@@ -18,6 +18,8 @@
 
                     <!-- Form Buttons -->
                     <div class="d-flex justify-content-end">
+                        <a href="{{ route('type') }}"><button type="button"
+                                class="btn btn-outline-danger me-2">Back</button></a>
                         <button type="reset" class="btn btn-outline-secondary me-2">Reset</button>
                         <button type="submit" class="btn btn-success">Submit</button>
                     </div>
