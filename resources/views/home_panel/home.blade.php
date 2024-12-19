@@ -8,7 +8,7 @@
         </div>
     </div>
     </div>
-    <!-- Menu -->
+    <!-- Categories -->
     <div id="menu">
         <div class="container-fluid container-img mt-5">
             <h1 class="subtitle">Available Here!</h1>

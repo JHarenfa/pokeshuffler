@@ -24,7 +24,6 @@ class Home_Controller extends BaseController
 
 
         echo view('home_panel.home', compact('home', 'user', 'category'));
-
     }
 
 }

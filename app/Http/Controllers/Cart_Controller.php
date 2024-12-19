@@ -6,15 +6,16 @@ use App\Models\Order;
 use App\Models\Country;
 use App\Models\OrderItem;
 use App\Models\Product;
-use Illuminate\Http\Request;
 use App\Models\CustomerAddress;
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 
 
@@ -263,8 +264,6 @@ class Cart_Controller extends BaseController
             ]);
 
 
-        } else {
-            //
         }
 
     }
