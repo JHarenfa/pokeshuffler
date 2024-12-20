@@ -46,6 +46,7 @@ php artisan migrate --seed
 ## Custom API
 
 This project uses custom made API using .NET to control Products table display
+.NET project will be shared via Google Drive in ZIP
 ## Disclaimer
 
 This is an university project, we do not collect profits or condone this to be commercialized.
