@@ -26,10 +26,11 @@
                     <div class="mb-3">
                         <label for="category" class="form-label">Category <span class="text-danger">*</span></label>
                         <select id="category" name="category" class="form-control" required>
-                            <option value="1" {{ $product->category == 1 ? 'selected' : '' }}>Single Card</option>
-                            <option value="2" {{ $product->category == 2 ? 'selected' : '' }}>Booster Pack</option>
-                            <option value="3" {{ $product->category == 3 ? 'selected' : '' }}>Deck</option>
-                            <option value="4" {{ $product->category == 4 ? 'selected' : '' }}>Collector's Item</option>
+                            @foreach ($category as $item)
+                                <option value="{{ $item->category_id }}"
+                                    {{ $product->category_id == $item->category_id ? 'selected' : '' }}>{{ $item->name }}
+                                </option>
+                            @endforeach
                         </select>
                     </div>
 
@@ -37,12 +38,12 @@
                     <div class="mb-3">
                         <label for="rarity" class="form-label">Rarity <span class="text-danger">*</span></label>
                         <select id="rarity" name="rarity" class="form-control" required>
-                            <option value="1" {{ $product->rarity == 1 ? 'selected' : '' }}>Common</option>
-                            <option value="2" {{ $product->rarity == 2 ? 'selected' : '' }}>Uncommon</option>
-                            <option value="3" {{ $product->rarity == 3 ? 'selected' : '' }}>Rare</option>
-                            <option value="4" {{ $product->rarity == 4 ? 'selected' : '' }}>Ultra Rare</option>
-                            <option value="5" {{ $product->rarity == 5 ? 'selected' : '' }}>Secret Rare</option>
-                            <option value="" {{ !$product->rarity ? 'selected' : '' }}>None</option>
+                            @foreach ($rarity as $item)
+                                <option value="{{ $item->rarity_id }}"
+                                    {{ $product->rarity_id == $item->rarity_id ? 'selected' : '' }}>
+                                    {{ $item->name }}</option>
+                            @endforeach
+                            <option value="" {{ !$product->rarity_id ? 'selected' : '' }}>None</option>
                         </select>
                     </div>
 
@@ -50,10 +51,12 @@
                     <div class="mb-3">
                         <label for="type" class="form-label">Type <span class="text-danger">*</span></label>
                         <select id="type" name="type" class="form-control" required>
-                            <option value="1" {{ $product->type == 1 ? 'selected' : '' }}>Normal Print</option>
-                            <option value="2" {{ $product->type == 2 ? 'selected' : '' }}>Reverse Holo</option>
-                            <option value="3" {{ $product->type == 3 ? 'selected' : '' }}>Rare Holo</option>
-                            <option value="" {{ !$product->type ? 'selected' : '' }}>None</option>
+                            @foreach ($type as $item)
+                                <option value="{{ $item->type_id }}"
+                                    {{ $product->type_id == $item->type_id ? 'selected' : '' }}>
+                                    {{ $item->name }}</option>
+                            @endforeach
+                            <option value="" {{ !$product->type_id ? 'selected' : '' }}>None</option>
                         </select>
                     </div>
 

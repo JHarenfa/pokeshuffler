@@ -13,6 +13,10 @@
 
                         <!-- Product Details -->
                         <div class="col-lg-6 p-4">
+                            @if ($product->is_popular)
+                                <h2 class="text-danger fw-bold">Popular Item!</h2>
+                            @endif
+
                             <h1 class="h3 fw-bold mb-3">{{ $product->name }}</h1>
                             <p class="text-muted">{{ $product->description }}</p>
 
@@ -23,6 +27,8 @@
                                         class="text-capitalize">{{ $rarity }}</span></p>
                                 <p><strong>Type:</strong> <span class="text-capitalize">{{ $type }}</span></p>
                             </div>
+
+                            <h2 class="fw-bold">Stock: {{ $product->stock }}</h2>
 
                             <div class="mb-4">
                                 <h2 class="text-success fw-bold">${{ $product->price }}</h2>

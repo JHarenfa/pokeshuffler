@@ -3,7 +3,7 @@
     <div class="container my-4">
         <div class="card shadow">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h2 class="h5 mb-0">Category <small>List</small></h2>
+                <h2 class="h5 mb-0">Rarity <small>List</small></h2>
                 <a href="{{ url('add_rarity') }}" class="btn btn-outline-success btn-sm">Add +</a>
             </div>
             <div class="card-body">

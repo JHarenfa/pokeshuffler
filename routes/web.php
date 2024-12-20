@@ -49,11 +49,8 @@ Route::middleware('seller')->group(function () {
 
     Route::post('/add_product', [Product_Controller::class, 'create'])->name('product.create');
 
-    Route::get('/add_product', function () {
+    Route::get('/add_product', [Product_Controller::class, 'add'])->name('product.add');
 
-        echo view('admin_panel/product/add_product');
-
-    });
 
     Route::get('/edit_product/{id}', [Product_Controller::class, 'edit'])->name('product.edit');
     Route::post('/edit_product/{id}', [Product_Controller::class, 'update'])->name('product.update');

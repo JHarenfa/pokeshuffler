@@ -15,7 +15,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-
+use function PHPSTORM_META\type;
 
 class Product_Controller extends BaseController
 {
@@ -43,6 +43,15 @@ class Product_Controller extends BaseController
 
         // Return view with products and pagination data
         return view('admin_panel/product/product', compact('products', 'page', 'perPage', 'total', 'totalPages'));
+    }
+
+    public function Add()
+    {
+        echo view('admin_panel/product/add_product', [
+            'rarity' => Rarity::get(),
+            'category' => Category::get(),
+            'type' => Type::get()
+        ]);
     }
 
     public function Create(Request $request)
@@ -95,7 +104,10 @@ class Product_Controller extends BaseController
 
     public function Display()
     {
-        echo view('admin_panel/product/product', ['products' => Product::paginate(5)]);
+
+        echo view('admin_panel/product/product', [
+            'products' => Product::paginate(5)
+        ]);
 
     }
 
@@ -122,8 +134,18 @@ class Product_Controller extends BaseController
     public function Edit($product_id)
     {
         $product = Product::find($product_id);
+        $category = Category::get();
+        $rarity = Rarity::get();
+        $type = Type::get();
 
-        echo view('admin_panel/product/edit_product', compact('product', 'product_id'));
+        $data = [
+            'product' => $product,
+            'category' => $category,
+            'rarity' => $rarity,
+            'type' => $type,
+        ];
+
+        echo view('admin_panel/product/edit_product', $data);
 
     }
 

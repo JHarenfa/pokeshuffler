@@ -25,10 +25,9 @@
                     <div class="mb-3">
                         <label for="category" class="form-label">Category <span class="text-danger">*</span></label>
                         <select id="category" name="category" class="form-control" required>
-                            <option value="1">Single Card</option>
-                            <option value="2">Booster Pack</option>
-                            <option value="3">Deck</option>
-                            <option value="4">Collector's Item</option>
+                            @foreach ($category as $item)
+                                <option value="{{ $item->category_id }}">{{ $item->name }}</option>
+                            @endforeach
                         </select>
                     </div>
 
@@ -36,11 +35,9 @@
                     <div class="mb-3">
                         <label for="rarity" class="form-label">Rarity <span class="text-danger">*</span></label>
                         <select id="rarity" name="rarity" class="form-control" required>
-                            <option value="1">Common</option>
-                            <option value="2">Uncommon</option>
-                            <option value="3">Rare</option>
-                            <option value="4">Ultra Rare</option>
-                            <option value="5">Secret Rare</option>
+                            @foreach ($rarity as $item)
+                                <option value="{{ $item->rarity_id }}">{{ $item->name }}</option>
+                            @endforeach
                             <option value="">None</option>
                         </select>
                     </div>
@@ -49,9 +46,9 @@
                     <div class="mb-3">
                         <label for="type" class="form-label">Type <span class="text-danger">*</span></label>
                         <select id="type" name="type" class="form-control" required>
-                            <option value="1">Normal Print</option>
-                            <option value="2">Reverse Holo</option>
-                            <option value="3">Rare Holo</option>
+                            @foreach ($type as $item)
+                                <option value="{{ $item->type_id }}">{{ $item->name }}</option>
+                            @endforeach
                             <option value="">None</option>
                         </select>
                     </div>
